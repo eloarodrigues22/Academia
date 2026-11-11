@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forja Academia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eceff3;--surface:#fff;--ink:#101820;--muted:#4b5563;--accent:#1f3bff;--on-accent:#fff;--hi:#ffd400;--line:#c9ced6;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1116;--surface:#171b22;--ink:#eef0f4;--muted:#a3abb8;--accent:#7a8dff;--on-accent:#0e1116;--line:#2a303a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1116;--surface:#171b22;--ink:#eef0f4;--muted:#a3abb8;--accent:#7a8dff;--on-accent:#0e1116;--line:#2a303a;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55;font-size:17px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;font-size:22px;text-decoration:none;letter-spacing:-.02em}
+nav{display:flex;gap:22px;font-weight:600;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font:inherit;font-weight:900;padding:14px 26px;border:0;border-radius:4px;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.hero{padding:64px 0 48px}
+.hero h1{font-weight:900;font-size:clamp(52px,12vw,150px);line-height:.88;letter-spacing:-.045em;margin:0 0 28px}
+.hero h1 span{display:block}
+.hero h1 .o{-webkit-text-stroke:2px var(--ink);color:transparent}
+.hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+.hero p{font-size:19px;max-width:46ch;margin:0 0 24px;color:var(--muted)}
+.meter{background:var(--surface);border:1px solid var(--line);padding:18px 20px;border-radius:4px}
+.meter b{font-size:15px}
+.bar{height:14px;background:var(--line);border-radius:2px;margin:10px 0;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width 1s ease}
+.meter small{color:var(--muted)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-weight:900;font-size:clamp(32px,5vw,52px);line-height:1;letter-spacing:-.03em;margin:0 0 32px}
+.mods{list-style:none;margin:0;padding:0}
+.mods li{display:grid;grid-template-columns:minmax(140px,1fr) 2fr auto;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.mods strong{font-size:24px;font-weight:900;letter-spacing:-.02em}
+.mods span{color:var(--muted)}
+.mods em{font-style:normal;font-weight:600;font-size:14px;background:var(--hi);color:#101820;padding:3px 10px;border-radius:2px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
+.plan{padding:30px 26px;background:var(--surface);border-right:1px solid var(--ink)}
+.plan:last-child{border-right:0}
+.plan.main{background:var(--accent);color:var(--on-accent)}
+.plan h3{margin:0 0 6px;font-size:22px;font-weight:900}
+.price{font-size:48px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+.price small{font-size:16px;font-weight:400;letter-spacing:0}
+.plan ul{padding-left:18px;margin:16px 0 0}
+.plan li{margin:6px 0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tabs button{font:inherit;font-weight:600;padding:9px 18px;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:4px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+table{width:100%;border-collapse:collapse;background:var(--surface)}
+td{padding:14px 16px;border-bottom:1px solid var(--line)}
+td:first-child{font-weight:900;width:90px}
+td:last-child{color:var(--muted);text-align:right}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+label{display:block;font-weight:600;font-size:15px;margin:0 0 14px}
+input,select{display:block;width:100%;margin-top:6px;padding:12px;font:inherit;background:var(--surface);color:var(--ink);border:1px solid var(--ink);border-radius:4px}
+#ok{margin-top:16px;font-weight:600;min-height:1.5em}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (max-width:760px){nav{display:none}.hero-row,.contact{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.plan{border-right:0;border-bottom:1px solid var(--ink)}.plan:last-child{border-bottom:0}.mods li{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#topo">Forja</a>
+  <nav aria-label="Principal"><a href="#modalidades">Modalidades</a><a href="#planos">Planos</a><a href="#grade">Horários</a><a href="#contato">Contato</a></nav>
+  <a class="btn" href="#contato" style="padding:9px 18px">Aula grátis</a>
+</div></header>
+
+<main id="topo">
+<div class="wrap hero">
+  <h1><span>Treine pesado.</span><span class="o">Volte sempre.</span></h1>
+  <div class="hero-row">
+    <div>
+      <p>Musculação, funcional e aulas coletivas em um espaço de 1.200 m² com professores em todos os horários. Venha conhecer sem compromisso.</p>
+      <a class="btn" href="#contato">Agendar aula experimental</a>
+    </div>
+    <div class="meter" aria-live="polite">
+      <b>Movimento agora</b>
+      <div class="bar"><i id="fill"></i></div>
+      <small id="mtxt"></small>
+    </div>
+  </div>
+</div>
+
+<section id="modalidades"><div class="wrap">
+  <h2>O que você treina aqui</h2>
+  <ul class="mods">
+    <li><strong>Musculação</strong><span>Equipamentos novos, área de peso livre e acompanhamento de professor.</span><em>Livre</em></li>
+    <li><strong>Funcional</strong><span>Circuitos em grupo com cargas ajustadas ao seu nível.</span><em>Turmas de 12</em></li>
+    <li><strong>Spinning</strong><span>45 minutos de pedal com playlist e metas de intensidade.</span><em>Segunda a sábado</em></li>
+    <li><strong>Boxe</strong><span>Técnica, saco e condicionamento. Não precisa ter experiência.</span><em>Iniciantes</em></li>
+    <li><strong>Yoga</strong><span>Mobilidade e respiração para recuperar entre os treinos.</span><em>Manhã e noite</em></li>
+  </ul>
+</div></section>
+
+<section id="planos"><div class="wrap">
+  <h2>Planos sem pegadinha</h2>
+  <div class="plans">
+    <div class="plan"><h3>Essencial</h3><div class="price">R$ 99<small>/mês</small></div>
+      <ul><li>Musculação livre</li><li>Horário comercial</li><li>Avaliação física inicial</li></ul></div>
+    <div class="plan main"><h3>Completo</h3><div class="price">R$ 149<small>/mês</small></div>
+      <ul><li>Todas as modalidades</li><li>Acesso das 5h às 23h</li><li>Avaliação a cada 3 meses</li></ul></div>
+    <div class="plan"><h3>Anual</h3><div class="price">R$ 119<small>/mês</small></div>
+      <ul><li>Tudo do plano Completo</li><li>Matrícula grátis</li><li>2 convites por mês</li></ul></div>
+  </div>
+</div></section>
+
+<section id="grade"><div class="wrap">
+  <h2>Grade de aulas</h2>
+  <div class="tabs" role="tablist" aria-label="Dias da semana" id="tabs"></div>
+  <div class="tbl"><table><tbody id="rows"></tbody></table></div>
+</div></section>
+
+<section id="contato"><div class="wrap contact">
+  <div>
+    <h2>Faça uma aula grátis</h2>
+    <p style="color:var(--muted);max-width:40ch">Conte como prefere ser chamado e escolha o dia. Nossa equipe confirma o horário pelo WhatsApp.</p>
+  </div>
+  <form id="f">
+    <label>Nome<input name="nome" required autocomplete="name"></label>
+    <label>WhatsApp<input name="tel" type="tel" required autocomplete="tel" placeholder="(43) 90000-0000"></label>
+    <label>Modalidade
+      <select name="mod"><option>Musculação</option><option>Funcional</option><option>Spinning</option><option>Boxe</option><option>Yoga</option></select>
+    </label>
+    <button class="btn" type="submit">Enviar pedido</button>
+    <div id="ok" role="status"></div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">Forja Academia · Rua Exemplo, 123 · Aberta das 5h às 23h, de segunda a sábado</div></footer>
+
+<script>
+(function(){
+  // Movimento estimado por hora do dia (valores ilustrativos)
+  var perfil={5:35,6:70,7:80,8:55,9:35,10:25,11:30,12:45,13:30,14:20,15:25,16:40,17:75,18:95,19:90,20:70,21:45,22:25};
+  var h=new Date().getHours(),pct=perfil[h];
+  var fill=document.getElementById('fill'),txt=document.getElementById('mtxt');
+  if(pct==null){txt.textContent='Academia fechada agora. Abrimos às 5h.';}
+  else{
+    var nivel=pct>=80?'Bem cheia':pct>=50?'Movimentada':'Tranquila';
+    txt.textContent=nivel+' neste horário (estimativa pelo histórico).';
+    setTimeout(function(){fill.style.width=pct+'%';},200);
+  }
+
+  // Grade de aulas: [horário, modalidade, professor]
+  var grade={
+    'Seg':[['06:00','Funcional','Carla'],['07:30','Spinning','Rafa'],['18:30','Boxe','Dudu'],['19:30','Funcional','Carla']],
+    'Ter':[['06:30','Yoga','Mari'],['12:15','Funcional','Rafa'],['18:00','Spinning','Rafa'],['20:00','Boxe','Dudu']],
+    'Qua':[['06:00','Funcional','Carla'],['07:30','Spinning','Rafa'],['18:30','Boxe','Dudu'],['19:30','Yoga','Mari']],
+    'Qui':[['06:30','Yoga','Mari'],['12:15','Funcional','Rafa'],['18:00','Spinning','Rafa'],['20:00','Funcional','Carla']],
+    'Sex':[['06:00','Funcional','Carla'],['07:30','Spinning','Rafa'],['18:00','Boxe','Dudu']],
+    'Sáb':[['08:00','Spinning','Rafa'],['09:00','Funcional','Carla'],['10:00','Yoga','Mari']]
+  };
+  var dias=Object.keys(grade),tabs=document.getElementById('tabs'),rows=document.getElementById('rows');
+  var hoje=['Seg','Ter','Qua','Qui','Sex','Sáb'][(new Date().getDay()+6)%7]||'Seg';
+  function show(d){
+    Array.prototype.forEach.call(tabs.children,function(b){b.setAttribute('aria-selected',b.textContent===d);});
+    rows.innerHTML='';
+    grade[d].forEach(function(a){
+      var tr=document.createElement('tr');
+      [a[0],a[1],'com '+a[2]].forEach(function(t){var td=document.createElement('td');td.textContent=t;tr.appendChild(td);});
+      rows.appendChild(tr);
+    });
+  }
+  dias.forEach(function(d){
+    var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=d;
+    b.onclick=function(){show(d);};tabs.appendChild(b);
+  });
+  show(grade[hoje]?hoje:'Seg');
+
+  // Formulário: por enquanto só mostra uma confirmação na tela
+  document.getElementById('f').addEventListener('submit',function(e){
+    e.preventDefault();
+    var nome=this.nome.value.trim();
+    document.getElementById('ok').textContent='Pedido recebido, '+nome+'. Vamos chamar você no WhatsApp para confirmar.';
+    this.reset();
+  });
+})();
+</script>
+</body>
+</html>
